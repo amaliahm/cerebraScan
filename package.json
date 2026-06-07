@@ -9,8 +9,6 @@
     "lint:fix": "eslint . --fix",
     "copy-static": "node scripts/copy-static.mjs",
     "fetch-assets": "node scripts/download-hero-assets.mjs",
-    "build": "npm run lint && npm run copy-static",
-    "vercel-build": "npm run build"
   },
   "devDependencies": {
     "@eslint/js": "^9.16.0",
