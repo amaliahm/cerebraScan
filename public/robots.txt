@@ -1,0 +1,52 @@
+# Plain static site — allow public pages; block non-existent framework paths.
+User-agent: *
+Allow: /
+Disallow: /api/
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+
+
+
+i wanna calculate the dice for the three images, grayscale, colored one and the overlay, the dice is gonna be between each image and the mask, this is my code "
+
+final_vmap = np.average(saliency_maps, axis=0, weights=weights)
+        final_vmap = cv2.GaussianBlur(final_vmap, (7, 7), 0)
+        final_vmap = (final_vmap - final_vmap.min()) / (final_vmap.max() - final_vmap.min() + 1e-8)
+
+        heatmap = (final_vmap * 255).astype(np.uint8)
+        
+        # Apply JET colormap (blue = low, red = high)
+        heatmap_color = cv2.applyColorMap(heatmap, cv2.COLORMAP_JET)
+        
+        # Optional: Overlay on original image for better visualization
+        original_img = np.array(image.convert('RGB'))
+        overlay = cv2.addWeighted(original_img, 0.6, heatmap_color, 0.4, 0)
+        
+        # Load the ground truth mask for comparison
+        gt_path = args.val_path.replace("images", "masks")
+        gt_mask = np.array(Image.open(f"{gt_path}/{image_id}").convert("L"))
+        
+        # Resize the generated map to match the ground truth mask size
+        vmap_resized = cv2.resize(np.array(final_vmap), (gt_mask.shape[1], gt_mask.shape[0]))
+        
+        # Threshold the map to create a binary mask
+        cam_img = vmap_resized > 0.3
+        
+        # Calculate the Dice score
+        dice_score = calculate_dice_coefficient(gt_mask.astype(bool), cam_img.astype(bool))
+
+modify it to do what i want it to do
+
+
+
+
+
+

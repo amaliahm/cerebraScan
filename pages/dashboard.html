@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!--
+      SEO + social: meta/OG/Twitter/JSON-LD for crawlers; no server rendering.
+      Runtime “API”: none — URLs and copy are static. Update canonical + og:url if you change domain.
+    -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CerebraScan</title>
+    <meta name="theme-color" content="#13746a" />
+    <link rel="canonical" href="https://cerebraScan.vercel.app/" />
+    <link rel="author" href="https://aminaghandouz.vercel.app" />
+    <link rel="me" href="mailto:a.ghandouz@esi-sba.dz" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "CerebraScan",
+        "url": "https://cerebraScan.vercel.app/",
+        "description": "CerebraScan",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "CerebraScan",
+          "url": "https://cerebraScan.vercel.app/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Amina Ghandouz",
+          "url": "https://aminaghandouz.vercel.app",
+          "email": "a.ghandouz@esi-sba.dz"
+        }
+      }
+    </script>
+
+    <link rel="icon" href="/public/logo.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/public/logo.png" />
+
+    <link
+      rel="preload"
+      href="/public/fonts/fredoka-600.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/public/fonts/nunito-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preload" href="/public/hero/collage-3.jpg" as="image" />
+    <link rel="preload" href="/public/hero/collage-1.jpg" as="image" />
+    <link rel="preload" href="/public/hero/collage-4.jpg" as="image" />
+    <link rel="preload" href="/public/hero/collage-2.jpg" as="image" />
+    <link rel="preload" href="/public/hero/bg-dog-run.jpg" as="image" />
+    <link rel="preload" href="/public/hero/bg-dog-chewy.jpg" as="image" />
+
+    <script
+      src="https://kit.fontawesome.com/c1df782baf.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      !(function () {
+        try {
+          var t = localStorage.getItem("dash26-theme"),
+            e = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          document.documentElement.setAttribute(
+            "data-theme",
+            t || (e ? "dark" : "light"),
+          );
+        } catch (t) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+    <script defer="defer" src="../js/runtime.js"></script>
+    <script defer="defer" src="../js/vendor-fullcalendar.js"></script>
+    <script defer="defer" src="../js/vendor-chartjs.js"></script>
+    <script defer="defer" src="../js/vendors.js"></script>
+    <script defer="defer" src="../js/2026.js"></script>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body data-active="dashboard" data-crumbs="">
+    <div class="visual-grid" style="position: fixed;"></div>
+    <div class="visual-scan" style="position: fixed;">
+      <div class="scan-ring"></div>
+      <div class="scan-ring"></div>
+      <div class="scan-ring"></div>
+      <div class="scan-brain">
+        <img
+          src="/public/med-together.svg"
+          width="40vh"
+          height="40vh"
+          alt="CerebraScan logo"
+        />
+      </div>
+      <div class="scan-line"></div>
+    </div>
+    <div class="shell">
+      <div data-shell-sidebar></div>
+      <div class="main">
+        <div data-shell-topbar></div>
+        <main class="content">
+          <section class="hero" style="margin-top: 40px;">
+            <div class="hero-text">
+              <span class="eyebrow" id="heroDate"
+                >Thursday · April 23 · 2026</span
+              >
+              <h1 class="hero-title">
+                Welcome back, <span class="accent">Dr Fatima</span>
+              </h1>
+            </div>
+          </section>
+          <section class="kpi-grid" aria-label="Key Project Metrics">
+            <article class="kpi-card c-success">
+              <div class="kpi-top">
+                <div class="kpi-identity">
+                  <div class="kpi-icon success">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M12 2L2 7v10l10 5 10-5V7L12 2z" />
+                      <path d="M12 22V12" />
+                    </svg>
+                  </div>
+                  <div class="kpi-label">Total Scans Processed</div>
+                </div>
+                <span class="kpi-pill up"
+                  ><svg viewBox="0 0 24 24">
+                    <path d="M7 17l10-10M7 7h10v10" />
+                  </svg>
+                  +18%</span
+                >
+              </div>
+              <div class="kpi-value">1,847</div>
+              <div class="kpi-compare">
+                <svg class="up" viewBox="0 0 24 24">
+                  <path d="M7 17l10-10M7 7h10v10" />
+                </svg>
+                up from <strong>1,562</strong> <span class="sep">·</span> last
+                month
+              </div>
+            </article>
+
+            <article class="kpi-card c-danger">
+              <div class="kpi-top">
+                <div class="kpi-identity">
+                  <div class="kpi-icon danger">
+                    <svg viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M12 8v4M12 16h.01" />
+                    </svg>
+                  </div>
+                  <div class="kpi-label">Tumors Detected</div>
+                </div>
+                <span class="kpi-pill up"
+                  ><svg viewBox="0 0 24 24">
+                    <path d="M7 17l10-10M7 7h10v10" />
+                  </svg>
+                  +12%</span
+                >
+              </div>
+              <div class="kpi-value">1,392</div>
+              <div class="kpi-compare">
+                <svg class="up" viewBox="0 0 24 24">
+                  <path d="M7 17l10-10M7 7h10v10" />
+                </svg>
+                up from <strong>1,241</strong> <span class="sep">·</span> last
+                month
+              </div>
+            </article>
+
+            <article class="kpi-card c-purple">
+              <div class="kpi-top">
+                <div class="kpi-identity">
+                  <div class="kpi-icon purple">
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l1.6-1.6a1 1 0 0 0 0-1.4l-1.6-1.6a1 1 0 0 0-1.4 0z"
+                      />
+                      <path d="M3 12h18M12 3v18" />
+                    </svg>
+                  </div>
+                  <div class="kpi-label">Avg. Dice Score</div>
+                </div>
+                <span class="kpi-pill up"
+                  ><svg viewBox="0 0 24 24">
+                    <path d="M7 17l10-10M7 7h10v10" />
+                  </svg>
+                  +0.04</span
+                >
+              </div>
+              <div class="kpi-value">0.89</div>
+              <div class="kpi-compare">
+                <svg class="up" viewBox="0 0 24 24">
+                  <path d="M7 17l10-10M7 7h10v10" />
+                </svg>
+                improved from <strong>0.85</strong>
+                <span class="sep">·</span> last month
+              </div>
+            </article>
+
+            <article class="kpi-card c-primary">
+              <div class="kpi-top">
+                <div class="kpi-identity">
+                  <div class="kpi-icon primary">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M12 6v6l4 2" />
+                      <circle cx="12" cy="12" r="10" />
+                    </svg>
+                  </div>
+                  <div class="kpi-label">Avg. Processing Time</div>
+                </div>
+                <span class="kpi-pill flat"
+                  ><svg viewBox="0 0 24 24"><path d="M5 12h14" /></svg>
+                  stable</span
+                >
+              </div>
+              <div class="kpi-value">2.4<sup>min</sup></div>
+              <div class="kpi-compare">
+                <svg class="flat" viewBox="0 0 24 24">
+                  <path d="M5 12h14" />
+                </svg>
+                same as <strong>2.4min</strong> <span class="sep">·</span> last
+                month
+              </div>
+            </article>
+          </section>
+          <div class="grid">
+            <section class="col-12 card">
+              <div class="card-head">
+                <div class="card-title-wrap">
+                  <span class="eyebrow">Performance</span>
+                  <h2 class="card-title">Tumor Segmentation Overview</h2>
+                </div>
+                <a class="card-action" href="#">
+                  View full report
+                  <svg viewBox="0 0 24 24">
+                    <path d="M5 12h14M13 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+
+              <div class="sv-regions">
+                <!-- Brain Regions / Tumor Locations -->
+                <div class="sv-region">
+                  <div class="sv-region-head">
+                    <span
+                      class="marker"
+                      style="background: var(--purple)"
+                    ></span>
+                    Frontal Lobe
+                  </div>
+                  <div class="sv-region-value">
+                    487<span class="pct">42%</span>
+                  </div>
+                  <div class="sv-region-bar">
+                    <div
+                      class="sv-region-bar-fill"
+                      style="width: 42%; background: var(--purple)"
+                    ></div>
+                  </div>
+                </div>
+
+                <div class="sv-region">
+                  <div class="sv-region-head">
+                    <span
+                      class="marker"
+                      style="background: var(--success)"
+                    ></span>
+                    Temporal Lobe
+                  </div>
+                  <div class="sv-region-value">
+                    326<span class="pct">28%</span>
+                  </div>
+                  <div class="sv-region-bar">
+                    <div
+                      class="sv-region-bar-fill"
+                      style="width: 28%; background: var(--success)"
+                    ></div>
+                  </div>
+                </div>
+
+                <div class="sv-region">
+                  <div class="sv-region-head">
+                    <span class="marker" style="background: var(--info)"></span>
+                    Parietal Lobe
+                  </div>
+                  <div class="sv-region-value">
+                    198<span class="pct">17%</span>
+                  </div>
+                  <div class="sv-region-bar">
+                    <div
+                      class="sv-region-bar-fill"
+                      style="width: 17%; background: var(--info)"
+                    ></div>
+                  </div>
+                </div>
+
+                <div class="sv-region">
+                  <div class="sv-region-head">
+                    <span class="marker" style="background: #64748b"></span>
+                    Occipital Lobe + Others
+                  </div>
+                  <div class="sv-region-value">
+                    151<span class="pct">13%</span>
+                  </div>
+                  <div class="sv-region-bar">
+                    <div
+                      class="sv-region-bar-fill"
+                      style="width: 13%; background: #64748b"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sv-divider"></div>
+
+              <!-- Radial Charts - Model Metrics -->
+              <div class="sv-radials">
+                <div class="sv-radial">
+                  <div class="sv-radial-chart">
+                    <svg viewBox="0 0 80 80">
+                      <circle class="radial-track" cx="40" cy="40" r="32" />
+                      <circle
+                        class="radial-fill success"
+                        cx="40"
+                        cy="40"
+                        r="32"
+                        stroke-dasharray="201.06"
+                        stroke-dashoffset="30.16"
+                      />
+                    </svg>
+                    <span class="pct">85%</span>
+                  </div>
+                  <div class="sv-radial-text">
+                    <div class="sv-radial-name">Mean Dice Score</div>
+                    <div class="sv-radial-caption">Segmentation accuracy</div>
+                  </div>
+                </div>
+
+                <div class="sv-radial">
+                  <div class="sv-radial-chart">
+                    <svg viewBox="0 0 80 80">
+                      <circle class="radial-track" cx="40" cy="40" r="32" />
+                      <circle
+                        class="radial-fill info"
+                        cx="40"
+                        cy="40"
+                        r="32"
+                        stroke-dasharray="201.06"
+                        stroke-dashoffset="60.32"
+                      />
+                    </svg>
+                    <span class="pct">80%</span>
+                  </div>
+                  <div class="sv-radial-text">
+                    <div class="sv-radial-name">Sensitivity</div>
+                    <div class="sv-radial-caption">Tumor detection rate</div>
+                  </div>
+                </div>
+
+                <div class="sv-radial">
+                  <div class="sv-radial-chart">
+                    <svg viewBox="0 0 80 80">
+                      <circle class="radial-track" cx="40" cy="40" r="32" />
+                      <circle
+                        class="radial-fill warning"
+                        cx="40"
+                        cy="40"
+                        r="32"
+                        stroke-dasharray="201.06"
+                        stroke-dashoffset="40.21"
+                      />
+                    </svg>
+                    <span class="pct">80%</span>
+                  </div>
+                  <div class="sv-radial-text">
+                    <div class="sv-radial-name">Specificity</div>
+                    <div class="sv-radial-caption">
+                      Healthy tissue preservation
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="col-6 card">
+              <div class="card-head">
+                <div class="card-title-wrap">
+                  <span class="eyebrow">Performance</span>
+                  <h2 class="card-title">Monthly Segmentation Stats</h2>
+                </div>
+                <span class="card-action">April 2026</span>
+              </div>
+
+              <div class="chart-canvas-wrap" style="height: 240px">
+                <canvas data-chart-key="dashboard-monthly"></canvas>
+              </div>
+
+              <div class="monthly-footer">
+                <div class="stat-cell">
+                  <div class="stat-cell-label">Scans Processed</div>
+                  <div class="stat-cell-value">
+                    428
+                    <svg
+                      class="trend-ic"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                    >
+                      <path d="M7 17l10-10M7 7h10v10" />
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="stat-cell">
+                  <div class="stat-cell-label">Avg Dice Score</div>
+                  <div class="stat-cell-value">
+                    0.91
+                    <svg
+                      class="trend-ic"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                    >
+                      <path d="M7 17l10-10M7 7h10v10" />
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="stat-cell">
+                  <div class="stat-cell-label">Tumors Detected</div>
+                  <div class="stat-cell-value">
+                    319
+                    <svg
+                      class="trend-ic"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                    >
+                      <path d="M7 17l10-10M7 7h10v10" />
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="stat-cell">
+                  <div class="stat-cell-label">Avg Processing Time</div>
+                  <div class="stat-cell-value">
+                    2.1s
+                    <svg
+                      class="trend-ic"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                    >
+                      <path d="M7 17l10-10M7 7h10v10" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </main>
+        <div data-shell-footer></div>
+      </div>
+    </div>
+    <div class="dev-banner">
+      <div class="dev-banner__icon">⚠️</div>
+
+      <div class="dev-banner__content">
+        <div class="dev-banner__title">Model under active development</div>
+
+        <div class="dev-banner__text">
+          This interface is a preview environment. You will find here an example
+          of how to use the system and the available functionalities.
+        </div>
+      </div>
+    </div>
+    <style>
+      .dev-banner {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        padding: 14px 16px;
+        margin-bottom: 16px;
+        border-radius: 12px;
+        background: #fff7e6;
+        border: 1px solid #ffe1a6;
+        color: #5a4300;
+        width: 500px;
+        position: fixed;
+        top: 5px;
+        right: 5px;
+
+        z-index: 9999;
+      }
+
+      .dev-banner__icon {
+        font-size: 18px;
+        line-height: 1;
+      }
+
+      .dev-banner__title {
+        font-weight: 600;
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+
+      .dev-banner__text {
+        font-size: 13px;
+        line-height: 1.5;
+        opacity: 0.9;
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!--
+      SEO + social: meta/OG/Twitter/JSON-LD for crawlers; no server rendering.
+      Runtime “API”: none — URLs and copy are static. Update canonical + og:url if you change domain.
+    -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CerebraScan</title>
+    <meta name="theme-color" content="#13746a" />
+    <link rel="canonical" href="https://cerebraScan.vercel.app/" />
+    <link rel="author" href="https://aminaghandouz.vercel.app" />
+    <link rel="me" href="mailto:a.ghandouz@esi-sba.dz" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "CerebraScan",
+        "url": "https://cerebraScan.vercel.app/",
+        "description": "CerebraScan",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "CerebraScan",
+          "url": "https://cerebraScan.vercel.app/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Amina Ghandouz",
+          "url": "https://aminaghandouz.vercel.app",
+          "email": "a.ghandouz@esi-sba.dz"
+        }
+      }
+    </script>
+
+    <link rel="icon" href="/public/logo.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/public/logo.png" />
+
+    <link
+      rel="preload"
+      href="/public/fonts/fredoka-600.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/public/fonts/nunito-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preload" href="/public/hero/collage-3.jpg" as="image" />
+    <link rel="preload" href="/public/hero/collage-1.jpg" as="image" />
+    <link rel="preload" href="/public/hero/collage-4.jpg" as="image" />
+    <link rel="preload" href="/public/hero/collage-2.jpg" as="image" />
+    <link rel="preload" href="/public/hero/bg-dog-run.jpg" as="image" />
+    <link rel="preload" href="/public/hero/bg-dog-chewy.jpg" as="image" />
+
+    <script
+      src="https://kit.fontawesome.com/c1df782baf.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      !(function () {
+        try {
+          var t = localStorage.getItem("dash26-theme"),
+            e = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          document.documentElement.setAttribute(
+            "data-theme",
+            t || (e ? "dark" : "light"),
+          );
+        } catch (t) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+    <script defer="defer" src="../js/runtime.js"></script>
+    <script defer="defer" src="../js/vendor-fullcalendar.js"></script>
+    <script defer="defer" src="../js/vendor-chartjs.js"></script>
+    <script defer="defer" src="../js/vendors.js"></script>
+    <script defer="defer" src="../js/2026.js"></script>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body data-active="charts" data-crumbs>
+    <div class="visual-grid" style="position: fixed;"></div>
+    <div class="visual-scan" style="position: fixed;">
+      <div class="scan-ring"></div>
+      <div class="scan-ring"></div>
+      <div class="scan-ring"></div>
+      <div class="scan-brain">
+        <img
+          src="/public/med-together.svg"
+          width="40vh"
+          height="40vh"
+          alt="CerebraScan logo"
+        />
+      </div>
+      <div class="scan-line"></div>
+    </div>
+    <div class="shell">
+      <div data-shell-sidebar></div>
+      <div class="main">
+        <div data-shell-topbar></div>
+        <main class="content">
+          <section class="hero" style="margin-top: 16px;">
+            <div class="hero-text">
+              <span class="eyebrow">Last 2 years Statistics</span>
+              <h1 class="hero-title">Statistics</h1>
+              <p class="hero-sub">
+                Here you find statictis of last month's usage.
+              </p>
+            </div>
+            <div class="hero-actions">
+              <button class="btn btn--ghost">
+                <svg viewBox="0 0 24 24">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <path d="M7 10l5 5 5-5" />
+                  <path d="M12 15V3" />
+                </svg>
+                Export PNG
+              </button>
+              <button class="btn btn--primary">
+                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" /></svg> New
+                chart
+              </button>
+            </div>
+          </section>
+          <div class="grid">
+            <section class="col-12 card">
+              <div class="card-head">
+                <div class="card-title-wrap">
+                  <span class="eyebrow">Number of Segmentation</span>
+                  <h2 class="card-title">Last 2 years</h2>
+                </div>
+                <div class="demo-row" style="gap: 6px">
+                  <div class="btn-group">
+                    <button class="btn btn--ghost btn--sm">M</button>
+                    <button class="btn btn--ghost btn--sm is-active">Q</button>
+                    <button class="btn btn--ghost btn--sm">Y</button>
+                  </div>
+                </div>
+              </div>
+              <div class="chart-canvas-wrap" style="height: 280px">
+                <canvas data-chart-key="revenue-line"></canvas>
+              </div>
+              <div class="chart-meta-row">
+                <div class="chart-meta-cell">
+                  <span class="chart-meta-label">Total · 2026</span
+                  ><span class="chart-meta-value">50,952</span>
+                </div>
+                <div class="chart-meta-cell">
+                  <span class="chart-meta-label">Dice Score</span
+                  ><span class="chart-meta-value up">+03.2%</span>
+                </div>
+                <div class="chart-meta-cell">
+                  <span class="chart-meta-label">Best Dice</span
+                  ><span class="chart-meta-value">97.24%</span>
+                </div>
+              </div>
+            </section>
+            <section class="col-6 card">
+              <div class="card-head">
+                <div class="card-title-wrap">
+                  <span class="eyebrow">Metrics</span>
+                  <h2 class="card-title">Obtained Results</h2>
+                </div>
+                <a class="card-action" href="#"
+                  >View all
+                  <svg viewBox="0 0 24 24">
+                    <path d="M5 12h14M13 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+              <div class="chart-canvas-wrap" style="height: 240px">
+                <canvas data-chart-key="channels-bar"></canvas>
+              </div>
+            </section>
+            <section class="col-6 card">
+              <div class="card-head">
+                <div class="card-title-wrap">
+                  <span class="eyebrow">Type</span>
+                  <h2 class="card-title">Tumor Type</h2>
+                </div>
+                <span class="badge primary">3 Types</span>
+              </div>
+              <div class="chart-canvas-wrap" style="height: 240px">
+                <canvas data-chart-key="devices-doughnut"></canvas>
+              </div>
+            </section>
+            <section class="col-6 card">
+              <div class="card-head">
+                <div class="card-title-wrap">
+                  <span class="eyebrow">Dice Distribution</span>
+                  <h2 class="card-title">Dice Distribution</h2>
+                </div>
+              </div>
+              <div class="chart-canvas-wrap" style="height: 280px">
+                <canvas data-chart-key="sources-radar"></canvas>
+              </div>
+            </section>
+            <section class="col-12 card">
+              <div class="card-head">
+                <div class="card-title-wrap">
+                  <span class="eyebrow">Last 30 days usage</span>
+                  <h2 class="card-title">Cerebra Usage</h2>
+                </div>
+                <div
+                  class="chart-meta-row"
+                  style="border: 0; padding: 0; margin: 0; gap: 24px"
+                >
+                  <div class="chart-meta-cell">
+                    <span class="chart-meta-label">Last week</span
+                    ><span class="chart-meta-value">239</span>
+                  </div>
+                  <div class="chart-meta-cell">
+                    <span class="chart-meta-label">Last month</span
+                    ><span class="chart-meta-value">1824</span>
+                  </div>
+                </div>
+              </div>
+              <div class="chart-canvas-wrap" style="height: 220px">
+                <canvas data-chart-key="sessions-area"></canvas>
+              </div>
+            </section>
+          </div>
+        </main>
+        <div data-shell-footer></div>
+      </div>
+    </div>
+    <div class="dev-banner">
+      <div class="dev-banner__icon">⚠️</div>
+
+      <div class="dev-banner__content">
+        <div class="dev-banner__title">Model under active development</div>
+
+        <div class="dev-banner__text">
+          This interface is a preview environment. You will find here an example
+          of how to use the system and the available functionalities.
+        </div>
+      </div>
+    </div>
+    <style>
+      .dev-banner {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        padding: 14px 16px;
+        margin-bottom: 16px;
+        border-radius: 12px;
+        background: #fff7e6;
+        border: 1px solid #ffe1a6;
+        color: #5a4300;
+        width: 500px;
+        position: fixed;
+        top: 5px;
+        right: 5px;
+
+        z-index: 9999;
+      }
+
+      .dev-banner__icon {
+        font-size: 18px;
+        line-height: 1;
+      }
+
+      .dev-banner__title {
+        font-weight: 600;
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+
+      .dev-banner__text {
+        font-size: 13px;
+        line-height: 1.5;
+        opacity: 0.9;
+      }
+    </style>
+  </body>
+</html>

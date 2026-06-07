@@ -1,0 +1,1839 @@
+<!doctype html>
+<html lang="en" data-scroll-behavior="smooth">
+  <head>
+    <!--
+      SEO + social: meta/OG/Twitter/JSON-LD for crawlers; no server rendering.
+      Runtime “API”: none — URLs and copy are static. Update canonical + og:url if you change domain.
+    -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CerebraScan</title>
+    <meta name="theme-color" content="#13746a" />
+    <link rel="canonical" href="https://cerebraScan.vercel.app/" />
+    <link rel="author" href="https://aminaghandouz.vercel.app" />
+    <link rel="me" href="mailto:a.ghandouz@esi-sba.dz" />
+
+    
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "CerebraScan",
+        "url": "https://cerebraScan.vercel.app/",
+        "description": "CerebraScan",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "CerebraScan",
+          "url": "https://cerebraScan.vercel.app/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Amina Ghandouz",
+          "url": "https://aminaghandouz.vercel.app",
+          "email": "a.ghandouz@esi-sba.dz"
+        }
+      }
+    </script>
+
+    <link rel="icon" href="/public/logo.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/public/logo.png" />
+
+    <link
+      rel="preload"
+      href="/public/fonts/fredoka-600.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/public/fonts/nunito-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preload" href="/public/hero/collage-3.jpg" as="image" />
+    <link rel="preload" href="/public/hero/collage-1.jpg" as="image" />
+    <link rel="preload" href="/public/hero/collage-4.jpg" as="image" />
+    <link rel="preload" href="/public/hero/collage-2.jpg" as="image" />
+    <link rel="preload" href="/public/hero/bg-dog-run.jpg" as="image" />
+    <link rel="preload" href="/public/hero/bg-dog-chewy.jpg" as="image" />
+
+    <script
+      src="https://kit.fontawesome.com/c1df782baf.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!--
+      Educational note: This page is one long document. JavaScript reads URL paths
+      (e.g. /team) and scrolls to the matching data-section-id — that is a simple SPA pattern.
+    -->
+    <header class="site-header">
+      <div class="max-w-9xl header-inner">
+        <a href="/" class="logo" data-route aria-label="CerebraScan home">
+          <img
+            src="/public/logo.png"
+            width="42"
+            height="42"
+            alt="CerebraScan logo"
+          />
+          <span class="logo-text">
+            <span class="logo-word logo-word--paw">Cere</span
+            ><span class="logo-word logo-word--fect">bra</span>
+            <span class="logo-word logo-word--care">Scan</span>
+          </span>
+        </a>
+
+        <nav class="navbar" aria-label="Primary">
+          <a href="/" data-route data-nav-for="home">Home</a>
+          <a href="#about" data-route data-nav-for="about">About</a>
+          <div class="nav-dd" data-dropdown>
+            <button
+              type="button"
+              class="nav-dd-toggle"
+              data-dropdown-toggle
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-label="Care types menu"
+            >
+              <span class="nav-dd-toggle__text">Services</span>
+              <span class="nav-dd-toggle__icon" aria-hidden="true">
+                <svg
+                  class="nav-dd-toggle__chevron"
+                  width="12"
+                  height="8"
+                  viewBox="0 0 12 8"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  focusable="false"
+                >
+                  <path
+                    d="M1 1.5L6 6.5L11 1.5"
+                    stroke="currentColor"
+                    stroke-width="1.75"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </button>
+            <div class="nav-dd-panel" data-dropdown-panel role="menu">
+              <a href="#services" data-route role="menuitem">All services</a>
+              <a
+                href="#services"
+                data-route
+                data-services-tab="tab-dogs"
+                role="menuitem"
+                >MRI Tumor Segmentation</a
+              >
+              <a
+                href="#services"
+                data-route
+                data-services-tab="tab-cats"
+                role="menuitem"
+                >Segmentation Report</a
+              >
+              <a
+                href="#services"
+                data-route
+                data-services-tab="tab-small"
+                role="menuitem"
+                >Scan History &amp; Management</a
+              >
+            </div>
+          </div>
+          <a href="#plans" data-route data-nav-for="plans">Plans</a>
+          <a href="#team" data-route data-nav-for="team">Team</a>
+          <a href="#stories" data-route data-nav-for="stories">Proven Impact</a>
+          <a href="#faq" data-route data-nav-for="faq">FAQ</a>
+          <a href="#contact" data-route data-nav-for="contact">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+          <div
+            id="menu-bars"
+            class="fas fa-bars"
+            role="button"
+            tabindex="0"
+            aria-label="Open menu"
+          ></div>
+          <span class="cta-shine-wrap">
+            <a href="auth.html" data-route class="btn-paw btn-ripple">
+              <img
+                src="/public/brain-icon.svg"
+                alt=""
+                width="20"
+                height="20"
+                class="btn-paw__icon"
+                aria-hidden="true"
+              />
+              Start Free Trial
+            </a>
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!--
+        Page map (client-side routes → scroll targets via js/router.js):
+        home, about, services, plans, team, stories, faq, contact — each uses data-section-id.
+        Pre-footer commitment banner is decorative CTA only (no separate route).
+      -->
+      <!-- Hero: data-section-id matches the router (path / → home) -->
+      <section
+        class="hero-shell"
+        data-hero
+        data-section-id="home"
+        aria-label="Welcome"
+      >
+        <div class="hero__media" aria-hidden="true">
+          <div
+            class="hero__bg-layer hero__bg-layer--active"
+            data-hero-bg-layer
+            style="background-image: url(&quot;/public/hero/doctor-1.jpg&quot;)"
+          ></div>
+          <div
+            class="hero__bg-layer"
+            data-hero-bg-layer
+            style="
+              background-image: url(&quot;/public/hero/MRI-scanner.webp&quot;);
+            "
+          ></div>
+        </div>
+        <div class="max-w-9xl hero-grid">
+          <div data-reveal-stagger>
+            <p class="hero-kicker reveal" data-greeting>
+              <img
+                src="/public/brain-icon.svg"
+                alt=""
+                width="20"
+                height="20"
+                class="hero-kicker__icon"
+                aria-hidden="true"
+              />
+              <span class="hero-kicker__text">Welcome to CerebraScan!</span>
+            </p>
+            <h1 class="hero-title reveal">
+              We bring
+              <span class="hero-title__flip" data-hero-title-word>
+                <span class="hero-title__word-layer is-front">precision</span>
+                <span class="hero-title__word-layer" aria-hidden="true"></span>
+              </span>
+              to every scan
+            </h1>
+            <p class="hero-copy reveal">
+              Fast, accurate tumor segmentation with intelligent guidance
+              because every scan deserves precision and every patient deserves
+              the best possible care
+            </p>
+            <div class="hero-cta reveal">
+              <span class="cta-shine-wrap">
+                <a href="#contact" data-route class="btn-paw btn-ripple">
+                  <img
+                    src="/public/brain-icon.svg"
+                    alt=""
+                    width="20"
+                    height="20"
+                    class="btn-paw__icon"
+                    aria-hidden="true"
+                  />
+                  Analyze My Scan
+                </a>
+              </span>
+              <span class="cta-shine-wrap cta-shine-wrap--outline">
+                <a
+                  href="#services"
+                  data-route
+                  class="btn-outline btn-ripple btn-ripple--outline"
+                  >Explore services</a
+                >
+              </span>
+            </div>
+          </div>
+          <div
+            class="hero-gallery"
+            data-reveal-stagger
+            aria-label="gallery"
+          >
+            <figure class="hero-shot hero-shot--1 reveal">
+              <img
+                data-dynamic-img="heroGallery1"
+                data-fallback-img="dogSmile"
+                src="/public/hero/collage-3.jpg"
+                width="400"
+                height="320"
+                alt="Puppy playing in the grass"
+                loading="eager"
+                decoding="async"
+              />
+            </figure>
+            <figure class="hero-shot hero-shot--2 reveal">
+              <img
+                data-dynamic-img="heroGallery2"
+                data-fallback-img="catHero"
+                src="/public/hero/collage-1.jpg"
+                width="280"
+                height="280"
+                alt="Curious cat portrait"
+                loading="eager"
+                decoding="async"
+              />
+            </figure>
+            <figure class="hero-shot hero-shot--3 reveal">
+              <img
+                data-dynamic-img="heroGallery3"
+                data-fallback-img="rabbit"
+                src="/public/hero/collage-4.jpg"
+                width="260"
+                height="260"
+                alt="Rabbit in soft light"
+                loading="eager"
+                decoding="async"
+              />
+            </figure>
+            <figure class="hero-shot hero-shot--4 reveal">
+              <img
+                data-dynamic-img="heroGallery4"
+                data-fallback-img="hamster"
+                src="/public/hero/collage-2.jpg"
+                width="300"
+                height="360"
+                alt="Hamster with soft bedding"
+                loading="eager"
+                decoding="async"
+              />
+            </figure>
+            <figure class="hero-shot hero-shot--5 reveal">
+              <img
+                data-dynamic-img="heroGallery5"
+                data-fallback-img="fish"
+                src="/public/hero/bg-dog-run.jpg"
+                width="320"
+                height="320"
+                alt="Clownfish in a coral reef aquarium"
+                loading="eager"
+                decoding="async"
+              />
+            </figure>
+            <!-- Glass nuggets: backdrop-xs + stagger after frames (see components.css) -->
+            <div
+              class="hero-gallery-nugget hero-gallery-nugget--1 backdrop-xs reveal"
+              role="note"
+            >
+              <img
+                src="/public/med-247.svg"
+                alt=""
+                width="22"
+                height="22"
+                class="hero-gallery-nugget__icon"
+                aria-hidden="true"
+                decoding="async"
+              />
+              <span class="hero-gallery-nugget__label">Results in Seconds</span>
+            </div>
+            <div
+              class="hero-gallery-nugget hero-gallery-nugget--2 backdrop-xs reveal"
+              role="note"
+            >
+              <img
+                src="/public/easy-icon.svg"
+                alt=""
+                width="22"
+                height="22"
+                class="hero-gallery-nugget__icon"
+                aria-hidden="true"
+                decoding="async"
+              />
+              <span class="hero-gallery-nugget__label"
+                >Effortless Segmentation</span
+              >
+            </div>
+            <div
+              class="hero-gallery-nugget hero-gallery-nugget--3 backdrop-xs reveal"
+              role="note"
+            >
+              <img
+                src="/public/expert-icon.svg"
+                alt=""
+                width="22"
+                height="22"
+                class="hero-gallery-nugget__icon"
+                aria-hidden="true"
+                decoding="async"
+              />
+              <span class="hero-gallery-nugget__label">Built by Experts</span>
+            </div>
+            <div
+              class="hero-gallery-nugget hero-gallery-nugget--4 backdrop-xs reveal"
+              role="note"
+            >
+              <img
+                src="/public/glare-star-icon.svg"
+                alt=""
+                width="22"
+                height="22"
+                class="hero-gallery-nugget__icon"
+                aria-hidden="true"
+                decoding="async"
+              />
+              <span class="hero-gallery-nugget__label"
+                >Clean, Modern Interface</span
+              >
+            </div>
+            <div
+              class="hero-gallery-nugget hero-gallery-nugget--5 backdrop-xs reveal"
+              role="note"
+            >
+              <img
+                src="/public/check-mark-circle-icon.svg"
+                alt=""
+                width="22"
+                height="22"
+                class="hero-gallery-nugget__icon"
+                aria-hidden="true"
+                decoding="async"
+              />
+              <span class="hero-gallery-nugget__label"
+                >Peace of Mind for Every Case</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Below-hero page decor: bg SVGs under content (see layout.css) -->
+      <div class="post-hero-bg-decor" aria-hidden="true">
+        <div class="post-hero-bg-decor__together"></div>
+        <div class="post-hero-bg-decor__bottom-strip">
+          <div
+            class="post-hero-bg-decor__paw post-hero-bg-decor__paw--left"
+          ></div>
+          <div class="team-reel" data-team-reel>
+            <div class="team-reel__viewport">
+              <div class="team-reel__track"></div>
+            </div>
+          </div>
+          <div
+            class="post-hero-bg-decor__paw post-hero-bg-decor__paw--right"
+          ></div>
+        </div>
+      </div>
+
+      <!-- Stagger container: children get .is-visible one after another in JS -->
+      <section class="section-block section-badges" aria-label="Trust badges">
+        <div class="max-w-9xl">
+          <header class="section-badges__head">
+            <img
+              src="/public/radiology-icon.svg"
+              alt=""
+              width="64"
+              height="64"
+              class="section-badges__mascot reveal"
+              decoding="async"
+              aria-hidden="true"
+            />
+            <h2 class="section-title section-badges__title reveal">
+              Why Radiologists Trust Us
+            </h2>
+          </header>
+          <div class="badge-row" data-reveal-stagger>
+            <span class="med-badge reveal"
+              ><i class="fas fa-certificate" aria-hidden="true"></i>
+              Expert-Built AI</span
+            >
+            <span class="med-badge reveal"
+              ><i class="fas fa-heart" aria-hidden="true"></i> Effortless
+              Segmentation</span
+            >
+            <span class="med-badge reveal"
+              ><i class="fas fa-shield-dog" aria-hidden="true"></i> Results in
+              Seconds</span
+            >
+            <span class="med-badge reveal"
+              ><i class="fas fa-bolt" aria-hidden="true"></i> Minimal Input,
+              Maximum Precision</span
+            >
+            <span class="med-badge reveal"
+              ><i class="fas fa-carrot" aria-hidden="true"></i>Secure & Private
+              Platform</span
+            >
+            <span class="med-badge reveal"
+              ><i class="fas fa-calendar-check" aria-hidden="true"></i> Guided
+              Intelligence</span
+            >
+            <span class="med-badge reveal"
+              ><i class="fas fa-file-lines" aria-hidden="true"></i
+              >Clinical-Grade Reports</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- About: route /about — brand story, imagery, trust chips -->
+      <section
+        class="section-block section-about"
+        data-section-id="about"
+        id="about"
+      >
+        <div class="max-w-9xl">
+          <header class="section-about__head reveal">
+            <img
+              src="/public/med-like.svg"
+              alt=""
+              width="64"
+              height="64"
+              class="section-about__mascot"
+              decoding="async"
+              aria-hidden="true"
+            />
+            <h2 class="section-title section-about__title">
+              Precision, Intelligence &amp; Trust
+            </h2>
+          </header>
+
+          <div
+            class="about-mini-badges"
+            data-reveal-stagger
+            aria-label="Care highlights"
+          >
+            <span class="about-chip about-chip--mint reveal">
+              <span
+                class="about-chip__icon about-chip__icon--star"
+                aria-hidden="true"
+              ></span>
+              Clinical Precision
+            </span>
+            <span class="about-chip about-chip--peach reveal">
+              <span
+                class="about-chip__icon about-chip__icon--food"
+                aria-hidden="true"
+              ></span>
+              Intelligent Guidance
+            </span>
+            <span class="about-chip about-chip--lilac reveal">
+              <span
+                class="about-chip__icon about-chip__icon--healthy"
+                aria-hidden="true"
+              ></span>
+              Time-Saving AI
+            </span>
+            <span class="about-chip about-chip--sky reveal">
+              <span
+                class="about-chip__icon about-chip__icon--house"
+                aria-hidden="true"
+              ></span>
+              Data Security First
+            </span>
+            <span class="about-chip about-chip--butter reveal">
+              <span
+                class="about-chip__icon about-chip__icon--continuous"
+                aria-hidden="true"
+              ></span>
+              Radiologist-Centric Design
+            </span>
+            <span class="about-chip about-chip--emerald reveal">
+              <span
+                class="about-chip__icon about-chip__icon--satisfied"
+                aria-hidden="true"
+              ></span>
+              Time-Saving AI
+            </span>
+          </div>
+
+          <p class="section-lead section-about__lead reveal">
+            CerebraScan blends cutting-edge AI with real clinical needs
+            delivering fast, accurate brain tumor segmentation while requiring
+            minimal manual effort, so radiologists can focus more on diagnosis
+            and patient care.
+          </p>
+
+          <div class="about-grid">
+            <div class="about-visual reveal">
+              <img
+                data-dynamic-img="about"
+                src=""
+                width="900"
+                height="900"
+                alt="Veterinarian gently examining a calm dog"
+              />
+            </div>
+            <div class="about-stair" data-reveal-stagger>
+              <ul class="about-list about-list--stair">
+                <li class="reveal">
+                  Developed with radiologists: every feature is designed based
+                  on real clinical workflows
+                </li>
+
+                <li class="reveal">
+                  Works with weak supervision: high accuracy even with simple
+                  image-level annotations
+                </li>
+                <li class="reveal">
+                  Flexible guidance: supports text prompts and bounding boxes
+                  for complex cases
+                </li>
+                <li class="reveal">
+                  Instant results: precise segmentation masks in seconds
+                </li>
+                <li class="reveal">
+                  Secure medical platform: bank-level encryption and full data
+                  privacy
+                </li>
+                <li class="reveal">
+                  Professional reports: automatic PDF reports with measurements
+                  and confidence scores
+                </li>
+                <li class="reveal">
+                  Complete case history: easily track and compare patient scans
+                  over time
+                </li>
+                <li class="reveal">
+                  Clean, intuitive interface: designed to reduce cognitive load
+                  during busy days
+                </li>
+                <li class="reveal">
+                  DICOM & standard MRI support: works with your existing imaging
+                  workflow
+                </li>
+                <li class="reveal">
+                  Continuous learning: our AI improves through collaboration
+                  with medical experts
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services: route /services — tab carousel + species panels (js/ui.js initTabs) -->
+      <section
+        class="section-block section-services"
+        data-section-id="services"
+        id="services"
+      >
+        <div class="max-w-9xl">
+          <header class="section-services__head reveal">
+            <img
+              src="/public/med-house.svg"
+              alt=""
+              width="64"
+              height="64"
+              class="section-services__mascot"
+              decoding="async"
+              aria-hidden="true"
+            />
+            <h2 class="section-title section-services__title">
+              Our Core Services
+            </h2>
+          </header>
+
+          <div
+            class="about-mini-badges services-mini-badges"
+            data-reveal-stagger
+            aria-label="What we bring to every visit"
+          >
+            <span class="about-chip about-chip--mint reveal">
+              <span
+                class="about-chip__icon about-chip__icon--star"
+                aria-hidden="true"
+              ></span>
+              Precision Tumor Segmentation
+            </span>
+            <span class="about-chip about-chip--peach reveal">
+              <span
+                class="about-chip__icon about-chip__icon--food"
+                aria-hidden="true"
+              ></span>
+              Weakly Supervised AI Models
+            </span>
+            <span class="about-chip about-chip--lilac reveal">
+              <span
+                class="about-chip__icon about-chip__icon--healthy"
+                aria-hidden="true"
+              ></span>
+              Text &amp; Bounding Box Guidance
+            </span>
+            <span class="about-chip about-chip--sky reveal">
+              <span
+                class="about-chip__icon about-chip__icon--house"
+                aria-hidden="true"
+              ></span>
+              Instant AI Reports
+            </span>
+            <span class="about-chip about-chip--butter reveal">
+              <span
+                class="about-chip__icon about-chip__icon--satisfied"
+                aria-hidden="true"
+              ></span>
+              Secure Multi-User Platform
+            </span>
+            <span class="about-chip about-chip--emerald reveal">
+              <span
+                class="about-chip__icon about-chip__icon--continuous"
+                aria-hidden="true"
+              ></span>
+              Advanced Tumor Boundary Detection
+            </span>
+          </div>
+
+          <p class="section-lead section-services__lead reveal">
+            From primary tumors to complex metastases, CerebraScan adapts to
+            every MRI case with consistent precision — same intelligent model,
+            clear medical-grade reports, and zero guesswork on tumor boundaries.
+          </p>
+
+          <div
+            data-tabs
+            data-tabs-carousel
+            data-tabs-interval="5600"
+            class="services-tabs"
+          >
+            <div class="services-tabs__scroll-chrome reveal" data-reveal-repeat>
+              <div
+                class="tabs-head"
+                role="tablist"
+                aria-label="Services by companion type"
+              >
+                <button
+                  type="button"
+                  class="tab-btn is-active"
+                  id="services-tab-dogs"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tab-dogs"
+                  data-tab-target="tab-dogs"
+                >
+                  MRI Tumor Segmentation
+                </button>
+                <button
+                  type="button"
+                  class="tab-btn"
+                  id="services-tab-cats"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tab-cats"
+                  data-tab-target="tab-cats"
+                >
+                  Segmentation Report
+                </button>
+                <button
+                  type="button"
+                  class="tab-btn"
+                  id="services-tab-small"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tab-small"
+                  data-tab-target="tab-small"
+                >
+                  Scan History &amp; Management
+                </button>
+              </div>
+
+              <div class="tab-panels-shell">
+                <div class="tab-panels-viewport">
+                  <div class="tab-panels-stack">
+                    <div
+                      id="tab-dogs"
+                      class="tab-panel is-active"
+                      data-tab-panel
+                      role="tabpanel"
+                      aria-labelledby="services-tab-dogs"
+                      aria-hidden="false"
+                    >
+                      <div class="service-mini-grid" data-reveal-stagger>
+                        <div
+                          class="service-pill service-pill--nugget service-pill--nugget-1 backdrop-xs reveal"
+                        >
+                          <i class="fas fa-stethoscope" aria-hidden="true"></i>
+                          <div>
+                            <h4>Accurate Boundary Detection</h4>
+                            <p>
+                              Precise 2D MRI tumor segmentation using weakly
+                              supervised AI, even with image-level annotations
+                              only.
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="service-pill service-pill--nugget service-pill--nugget-2 backdrop-xs reveal"
+                        >
+                          <i
+                            class="fa-solid fa-circle-info"
+                            aria-hidden="true"
+                          ></i>
+                          <div>
+                            <h4>Flexible Guidance Options</h4>
+                            <p>
+                              Supports text prompts, bounding boxes, or minimal
+                              clicks to guide and refine segmentation results.
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="service-pill service-pill--nugget service-pill--nugget-3 backdrop-xs reveal"
+                        >
+                          <i
+                            class="fa-solid fa-user-doctor"
+                            aria-hidden="true"
+                          ></i>
+                          <div>
+                            <h4>Instant AI Analysis</h4>
+                            <p>
+                              Fast processing with clear visual overlays and
+                              confidence maps for better clinical
+                              interpretation.
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="service-pill service-pill--nugget service-pill--nugget-4 backdrop-xs reveal"
+                        >
+                          <i class="fas fa-bandage" aria-hidden="true"></i>
+                          <div>
+                            <h4>Doctor-Friendly Reports</h4>
+                            <p>
+                              Automatic generation of detailed,
+                              easy-to-understand reports with segmentation
+                              masks, measurements, and export options.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      id="tab-cats"
+                      class="tab-panel"
+                      data-tab-panel
+                      role="tabpanel"
+                      aria-labelledby="services-tab-cats"
+                      aria-hidden="true"
+                    >
+                      <div class="service-mini-grid" data-reveal-stagger>
+                        <div
+                          class="service-pill service-pill--nugget service-pill--nugget-1 backdrop-xs reveal"
+                        >
+                          <i
+                            class="fa-solid fa-clipboard-list"
+                            aria-hidden="true"
+                          ></i>
+                          <div>
+                            <h4>Automated Clinical Summaries</h4>
+                            <p>
+                              Structured AI-generated reports with tumor
+                              measurements, localization, and segmentation
+                              insights.
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="service-pill service-pill--nugget service-pill--nugget-2 backdrop-xs reveal"
+                        >
+                          <i
+                            class="fa-solid fa-layer-group"
+                            aria-hidden="true"
+                          ></i>
+                          <div>
+                            <h4>Visual MRI Overlays</h4>
+                            <p>
+                              Clean annotated previews with highlighted tumor
+                              boundaries for rapid interpretation.
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="service-pill service-pill--nugget service-pill--nugget-3 backdrop-xs reveal"
+                        >
+                          <i
+                            class="fa-solid fa-bars-progress"
+                            aria-hidden="true"
+                          ></i>
+                          <div>
+                            <h4>Progression Tracking</h4>
+                            <p>
+                              Compare segmentation outputs across scans to
+                              monitor tumor evolution over time.
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="service-pill service-pill--nugget service-pill--nugget-4 backdrop-xs reveal"
+                        >
+                          <i class="fas fa-flask" aria-hidden="true"></i>
+                          <div>
+                            <h4>Export & Collaboration</h4>
+                            <p>
+                              Share-ready PDF reports and secure case exports
+                              for multidisciplinary review.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      id="tab-small"
+                      class="tab-panel"
+                      data-tab-panel
+                      role="tabpanel"
+                      aria-labelledby="services-tab-small"
+                      aria-hidden="true"
+                    >
+                      <div class="service-mini-grid" data-reveal-stagger>
+                        <div
+                          class="service-pill service-pill--nugget service-pill--nugget-1 backdrop-xs reveal"
+                        >
+                          <i
+                            class="fa-solid fa-timeline"
+                            aria-hidden="true"
+                          ></i>
+                          <div>
+                            <h4>Centralized MRI Timeline</h4>
+                            <p>
+                              Access previous scans, segmentation results, and
+                              reports from one unified dashboard.
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="service-pill service-pill--nugget service-pill--nugget-2 backdrop-xs reveal"
+                        >
+                          <i
+                            class="fa-solid fa-wave-square"
+                            aria-hidden="true"
+                          ></i>
+                          <div>
+                            <h4>Longitudinal Tumor Monitoring</h4>
+                            <p>
+                              Track tumor growth, response to treatment, and
+                              structural changes across time.
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="service-pill service-pill--nugget service-pill--nugget-3 backdrop-xs reveal"
+                        >
+                          <i
+                            class="fa-solid fa-folder-tree"
+                            aria-hidden="true"
+                          ></i>
+                          <div>
+                            <h4>Smart Case Organization</h4>
+                            <p>
+                              Filter scans by patient, date, tumor type, or
+                              diagnostic status for faster retrieval.
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="service-pill service-pill--nugget service-pill--nugget-4 backdrop-xs reveal"
+                        >
+                          <i class="fas fa-heart" aria-hidden="true"></i>
+                          <div>
+                            <h4>Secure Medical Archiving</h4>
+                            <p>
+                              Encrypted cloud storage designed for reliable
+                              long-term imaging and report preservation.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Plans: route /plans — comparison table; keyboard scroll helper in js/ui.js -->
+      <section
+        class="section-block section-plans"
+        data-section-id="plans"
+        id="plans"
+      >
+        <div class="max-w-9xl">
+          <header class="section-plans__head reveal">
+            <img
+              src="/public/credit-card-solid-full.svg"
+              alt=""
+              width="64"
+              height="64"
+              class="section-services__mascot"
+              decoding="async"
+              aria-hidden="true"
+            />
+            <h2 class="section-title section-plans__title">
+              CerebraScan Subscription Plans
+            </h2>
+          </header>
+
+          <div
+            class="about-mini-badges plans-mini-badges"
+            data-reveal-stagger
+            aria-label="What membership includes"
+          >
+            <span class="about-chip about-chip--mint reveal">
+              <span
+                class="about-chip__icon about-chip__icon--star"
+                aria-hidden="true"
+              ></span>
+              Flexible Subscription Tiers
+            </span>
+            <span class="about-chip about-chip--peach reveal">
+              <span
+                class="about-chip__icon about-chip__icon--food"
+                aria-hidden="true"
+              ></span>
+              Scalable Clinical Access
+            </span>
+            <span class="about-chip about-chip--lilac reveal">
+              <span
+                class="about-chip__icon about-chip__icon--healthy"
+                aria-hidden="true"
+              ></span>
+              AI-Powered Workflow Optimization
+            </span>
+            <span class="about-chip about-chip--sky reveal">
+              <span
+                class="about-chip__icon about-chip__icon--house"
+                aria-hidden="true"
+              ></span>
+              Easy Plan Upgrades
+            </span>
+            <span class="about-chip about-chip--butter reveal">
+              <span
+                class="about-chip__icon about-chip__icon--satisfied"
+                aria-hidden="true"
+              ></span>
+              Transparent Feature Access
+            </span>
+            <span class="about-chip about-chip--emerald reveal">
+              <span
+                class="about-chip__icon about-chip__icon--continuous"
+                aria-hidden="true"
+              ></span>
+              Secure Cloud Integration
+            </span>
+          </div>
+
+          <p class="section-lead section-plans__lead reveal">
+            Compare features, AI capabilities and collaboration tools across
+            plans, upgrade anytime as your clinical or research needs evolve.
+          </p>
+          <div class="plans-table-shell reveal">
+            <div
+              class="plans-table-scroll"
+              role="region"
+              aria-label="Wellness plan comparison. Swipe sideways on small screens, or use arrow keys when focused."
+              tabindex="0"
+            >
+              <table class="plans-table">
+                <thead>
+                  <tr>
+                    <th>Plan</th>
+                    <th>Monthly</th>
+                    <th>MRI Scans</th>
+                    <th>Features</th>
+                  </tr>
+                </thead>
+
+                <tbody data-reveal-stagger>
+                  <tr class="reveal">
+                    <td><strong>Starter AI</strong></td>
+                    <td class="plan-price">$29/mo</td>
+                    <td>50 scans</td>
+                    <td>Basic segmentation & reports</td>
+                  </tr>
+
+                  <tr class="reveal">
+                    <td>
+                      <strong>Clinical Pro</strong>
+                      <span class="plan-popular-badge">Most popular</span>
+                    </td>
+                    <td class="plan-price">$79/mo</td>
+                    <td>250 scans</td>
+                    <td>Advanced AI guidance & scan history</td>
+                  </tr>
+
+                  <tr class="reveal">
+                    <td><strong>Enterprise Neuro</strong></td>
+                    <td class="plan-price">Custom</td>
+                    <td>Unlimited</td>
+                    <td>Multi-user access, API & priority support</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team: route /team — filter + reel hydrated by js/doctorReel.js; modal #doctor-detail-dialog -->
+      <section
+        class="section-block section-team"
+        data-section-id="team"
+        id="team"
+      >
+        <div class="max-w-9xl">
+          <header class="section-team__head reveal">
+            <img
+              src="/public/expert-green-icon.svg"
+              alt=""
+              width="64"
+              height="64"
+              class="section-services__mascot"
+              decoding="async"
+              aria-hidden="true"
+            />
+            <h2 class="section-title section-team__title">
+              The Minds Behind CerebraScan
+            </h2>
+          </header>
+
+          <div
+            class="about-mini-badges team-mini-badges"
+            data-reveal-stagger
+            aria-label="Why our team stands out"
+          >
+            <span class="about-chip about-chip--mint reveal">
+              <span
+                class="about-chip__icon about-chip__icon--star"
+                aria-hidden="true"
+              ></span>
+              AI & Medical Imaging Experts
+            </span>
+            <span class="about-chip about-chip--peach reveal">
+              <span
+                class="about-chip__icon about-chip__icon--food"
+                aria-hidden="true"
+              ></span>
+              Research-Driven Innovation
+            </span>
+            <span class="about-chip about-chip--lilac reveal">
+              <span
+                class="about-chip__icon about-chip__icon--healthy"
+                aria-hidden="true"
+              ></span>
+              Fast Clinical Support
+            </span>
+            <span class="about-chip about-chip--sky reveal">
+              <span
+                class="about-chip__icon about-chip__icon--house"
+                aria-hidden="true"
+              ></span>
+              Human-Centered AI Design
+            </span>
+            <span class="about-chip about-chip--butter reveal">
+              <span
+                class="about-chip__icon about-chip__icon--satisfied"
+                aria-hidden="true"
+              ></span>
+              Transparent Medical Workflows
+            </span>
+            <span class="about-chip about-chip--butter reveal">
+              <span
+                class="about-chip__icon about-chip__icon--continuous"
+                aria-hidden="true"
+              ></span>
+              Continuous Model Improvement
+            </span>
+          </div>
+
+          <div class="section-team__toolbar reveal">
+            <p class="section-lead section-team__lead">
+              Meet the researchers, engineers and medical AI specialists
+              building the future of intelligent brain tumor segmentation.
+            </p>
+            <div class="section-team__toolbar-actions">
+              <button
+                type="button"
+                class="team-filter-clear"
+                id="team-filter-clear"
+                hidden
+              >
+                Clear filter
+              </button>
+              <div class="section-team__filter">
+                <label class="visually-hidden" for="team-category-filter"
+                  >Filter team by role</label
+                >
+                <select
+                  id="team-category-filter"
+                  class="team-filter-select"
+                  aria-label="Filter team by role"
+                >
+                  <option value="all" selected>All roles</option>
+                  <option value="ai_research">AI Research</option>
+                  <option value="platform_engineering">
+                    Platform Engineering
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="doctor-reel reveal" data-doctor-reel>
+            <div class="doctor-reel__frame">
+              <div class="doctor-reel__viewport">
+                <div class="doctor-reel__track"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Proven Impact: route /stories — 4-col reel from js/reviewsReel.js + #review-detail-dialog -->
+      <section
+        class="section-block section-reviews"
+        data-section-id="stories"
+        id="stories"
+      >
+        <div class="max-w-9xl">
+          <header class="section-reviews__head reveal">
+            <img
+              src="/public/proven-impact.svg"
+              alt=""
+              width="64"
+              height="64"
+              class="section-services__mascot"
+              decoding="async"
+              aria-hidden="true"
+            />
+            <h2 class="section-title section-reviews__title">
+              Proven Clinical Impact
+            </h2>
+          </header>
+
+          <div
+            class="about-mini-badges stories-mini-badges"
+            data-reveal-stagger
+            aria-label="story telling"
+          >
+            <span class="about-chip about-chip--mint reveal">
+              <span
+                class="about-chip__icon about-chip__icon--star"
+                aria-hidden="true"
+              ></span>
+              Real Clinical Results
+            </span>
+            <span class="about-chip about-chip--peach reveal">
+              <span
+                class="about-chip__icon about-chip__icon--healthy"
+                aria-hidden="true"
+              ></span>
+              Faster Diagnostic Workflows
+            </span>
+            <span class="about-chip about-chip--lilac reveal">
+              <span
+                class="about-chip__icon about-chip__icon--house"
+                aria-hidden="true"
+              ></span>
+              AI-Assisted Precision
+            </span>
+            <span class="about-chip about-chip--sky reveal">
+              <span
+                class="about-chip__icon about-chip__icon--food"
+                aria-hidden="true"
+              ></span>
+              Clear & Actionable Insights
+            </span>
+          </div>
+
+          <p class="section-lead section-reviews__lead reveal">
+            Discover how researchers, clinicians and medical teams use
+            CerebraScan to accelerate tumor analysis, improve segmentation
+            precision and streamline MRI workflows.
+          </p>
+
+          <div class="reviews-reel reveal" data-reviews-reel>
+            <div class="reviews-reel__frame">
+              <div class="reviews-reel__grid">
+                <div class="reviews-reel__col" data-reviews-col></div>
+                <div class="reviews-reel__col" data-reviews-col></div>
+                <div class="reviews-reel__col" data-reviews-col></div>
+                <div class="reviews-reel__col" data-reviews-col></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ: route /faq — accordion toggles wired by js/ui.js initFaq -->
+      <section class="section-block section-faq" data-section-id="faq" id="faq">
+        <div class="max-w-9xl">
+          <div class="section-faq__shell">
+            <div class="section-faq__intro">
+              <header class="section-faq__head reveal">
+                <img
+                  src="/public/FAQ-icon.svg"
+                  alt=""
+                  width="64"
+                  height="64"
+                  class="section-services__mascot"
+                  decoding="async"
+                  aria-hidden="true"
+                />
+                <h2 class="section-title section-faq__title">
+                  CerebraScan FAQ
+                </h2>
+              </header>
+
+              <div
+                class="about-mini-badges faq-mini-badges"
+                data-reveal-stagger
+                aria-label="Quick facts about visits"
+              >
+                <span class="about-chip about-chip--mint reveal">
+                  <span
+                    class="about-chip__icon about-chip__icon--healthy"
+                    aria-hidden="true"
+                  ></span>
+                  Clear Technical Explanations
+                </span>
+                <span class="about-chip about-chip--peach reveal">
+                  <span
+                    class="about-chip__icon about-chip__icon--star"
+                    aria-hidden="true"
+                  ></span>
+                  Research &amp; Clinical Focused
+                </span>
+                <span class="about-chip about-chip--lilac reveal">
+                  <span
+                    class="about-chip__icon about-chip__icon--house"
+                    aria-hidden="true"
+                  ></span>
+                  Secure Medical Workflows
+                </span>
+                <span class="about-chip about-chip--sky reveal">
+                  <span
+                    class="about-chip__icon about-chip__icon--food"
+                    aria-hidden="true"
+                  ></span>
+                  Fast Platform Support
+                </span>
+              </div>
+
+              <p class="section-lead section-faq__lead reveal">
+                Explore common questions about CerebraScan, our AI-powered
+                segmentation workflow, supported MRI formats, platform security
+                and clinical integration.
+              </p>
+            </div>
+
+            <div
+              class="section-faq__accordion"
+              role="region"
+              aria-label="Common questions"
+            >
+              <div class="faq-list">
+                <div class="faq-item reveal" data-faq-item data-reveal-repeat>
+                  <button
+                    type="button"
+                    class="faq-toggle"
+                    id="faq-trigger-exotic"
+                    data-faq-toggle
+                    aria-expanded="false"
+                    aria-controls="faq-panel-exotic"
+                  >
+                    What is CerebraScan?
+                    <span class="faq-toggle__icon" aria-hidden="true">
+                      <i class="fa-solid fa-person-circle-question"></i>
+                    </span>
+                  </button>
+                  <div
+                    class="faq-panel-shell"
+                    data-faq-panel-shell
+                    aria-hidden="true"
+                  >
+                    <div class="faq-panel-flow">
+                      <div
+                        class="faq-panel"
+                        id="faq-panel-exotic"
+                        data-faq-panel
+                        role="region"
+                        aria-labelledby="faq-trigger-exotic"
+                      >
+                        CerebraScan is an AI-powered platform specialized in
+                        brain tumor segmentation from MRI images using weakly
+                        supervised learning techniques guided by text prompts
+                        and bounding boxes.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="faq-item reveal" data-faq-item data-reveal-repeat>
+                  <button
+                    type="button"
+                    class="faq-toggle"
+                    id="faq-trigger-stay"
+                    data-faq-toggle
+                    aria-expanded="false"
+                    aria-controls="faq-panel-stay"
+                  >
+                    Which MRI formats are supported?
+                    <span class="faq-toggle__icon" aria-hidden="true">
+                      <i class="fa-solid fa-person-circle-question"></i>
+                    </span>
+                  </button>
+                  <div
+                    class="faq-panel-shell"
+                    data-faq-panel-shell
+                    aria-hidden="true"
+                  >
+                    <div class="faq-panel-flow">
+                      <div
+                        class="faq-panel"
+                        id="faq-panel-stay"
+                        data-faq-panel
+                        role="region"
+                        aria-labelledby="faq-trigger-stay"
+                      >
+                        The platform supports standard medical imaging formats
+                        including DICOM, PNG, JPEG for 2D MRI-based analysis and
+                        visualization.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="faq-item reveal" data-faq-item data-reveal-repeat>
+                  <button
+                    type="button"
+                    class="faq-toggle"
+                    id="faq-trigger-book"
+                    data-faq-toggle
+                    aria-expanded="false"
+                    aria-controls="faq-panel-book"
+                  >
+                    What makes CerebraScan different from traditional
+                    segmentation systems?
+                    <span class="faq-toggle__icon" aria-hidden="true">
+                      <i class="fa-solid fa-person-circle-question"></i>
+                    </span>
+                  </button>
+                  <div
+                    class="faq-panel-shell"
+                    data-faq-panel-shell
+                    aria-hidden="true"
+                  >
+                    <div class="faq-panel-flow">
+                      <div
+                        class="faq-panel"
+                        id="faq-panel-book"
+                        data-faq-panel
+                        role="region"
+                        aria-labelledby="faq-trigger-book"
+                      >
+                        Unlike traditional fully supervised models that require
+                        pixel-perfect annotations, CerebraScan works with
+                        image-level annotations, text guidance and bounding
+                        boxes, significantly reducing annotation effort and
+                        cost.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="faq-item reveal" data-faq-item data-reveal-repeat>
+                  <button
+                    type="button"
+                    class="faq-toggle"
+                    id="faq-trigger-puppy"
+                    data-faq-toggle
+                    aria-expanded="false"
+                    aria-controls="faq-panel-puppy"
+                  >
+                    Can clinicians manually refine segmentation results?
+                    <span class="faq-toggle__icon" aria-hidden="true">
+                      <i class="fa-solid fa-person-circle-question"></i>
+                    </span>
+                  </button>
+                  <div
+                    class="faq-panel-shell"
+                    data-faq-panel-shell
+                    aria-hidden="true"
+                  >
+                    <div class="faq-panel-flow">
+                      <div
+                        class="faq-panel"
+                        id="faq-panel-puppy"
+                        data-faq-panel
+                        role="region"
+                        aria-labelledby="faq-trigger-puppy"
+                      >
+                        Yes. Users can guide and refine predictions using
+                        bounding boxes, text prompts and interactive visual
+                        feedback tools directly within the platform.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="faq-item reveal" data-faq-item data-reveal-repeat>
+                  <button
+                    type="button"
+                    class="faq-toggle"
+                    id="faq-trigger-urgent"
+                    data-faq-toggle
+                    aria-expanded="false"
+                    aria-controls="faq-panel-urgent"
+                  >
+                    How accurate is the AI segmentation?
+                    <span class="faq-toggle__icon" aria-hidden="true">
+                      <i class="fa-solid fa-person-circle-question"></i>
+                    </span>
+                  </button>
+                  <div
+                    class="faq-panel-shell"
+                    data-faq-panel-shell
+                    aria-hidden="true"
+                  >
+                    <div class="faq-panel-flow">
+                      <div
+                        class="faq-panel"
+                        id="faq-panel-urgent"
+                        data-faq-panel
+                        role="region"
+                        aria-labelledby="faq-trigger-urgent"
+                      >
+                        CerebraScan is designed to provide high-precision tumor
+                        boundary detection while minimizing annotation
+                        requirements. Performance continuously improves through
+                        model optimization and clinical feedback.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="faq-item reveal" data-faq-item data-reveal-repeat>
+                  <button
+                    type="button"
+                    class="faq-toggle"
+                    id="faq-trigger-senior"
+                    data-faq-toggle
+                    aria-expanded="false"
+                    aria-controls="faq-panel-senior"
+                  >
+                    Is patient data stored securely?
+                    <span class="faq-toggle__icon" aria-hidden="true">
+                      <i class="fa-solid fa-person-circle-question"></i>
+                    </span>
+                  </button>
+                  <div
+                    class="faq-panel-shell"
+                    data-faq-panel-shell
+                    aria-hidden="true"
+                  >
+                    <div class="faq-panel-flow">
+                      <div
+                        class="faq-panel"
+                        id="faq-panel-senior"
+                        data-faq-panel
+                        role="region"
+                        aria-labelledby="faq-trigger-senior"
+                      >
+                        Yes. All uploaded scans and reports are protected using
+                        secure cloud infrastructure, encrypted storage and
+                        role-based authentication mechanisms.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="faq-item reveal" data-faq-item data-reveal-repeat>
+                  <button
+                    type="button"
+                    class="faq-toggle"
+                    id="faq-trigger-carrier"
+                    data-faq-toggle
+                    aria-expanded="false"
+                    aria-controls="faq-panel-carrier"
+                  >
+                    Does the platform generate medical reports automatically?
+                    <span class="faq-toggle__icon" aria-hidden="true">
+                      <i class="fa-solid fa-person-circle-question"></i>
+                    </span>
+                  </button>
+                  <div
+                    class="faq-panel-shell"
+                    data-faq-panel-shell
+                    aria-hidden="true"
+                  >
+                    <div class="faq-panel-flow">
+                      <div
+                        class="faq-panel"
+                        id="faq-panel-carrier"
+                        data-faq-panel
+                        role="region"
+                        aria-labelledby="faq-trigger-carrier"
+                      >
+                        Yes. CerebraScan can automatically generate structured
+                        segmentation reports including visual overlays, tumor
+                        measurements and clinical summaries.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="faq-item reveal" data-faq-item data-reveal-repeat>
+                  <button
+                    type="button"
+                    class="faq-toggle"
+                    id="faq-trigger-pay"
+                    data-faq-toggle
+                    aria-expanded="false"
+                    aria-controls="faq-panel-pay"
+                  >
+                    Who can use CerebraScan?
+                    <span class="faq-toggle__icon" aria-hidden="true">
+                      <i class="fa-solid fa-person-circle-question"></i>
+                    </span>
+                  </button>
+                  <div
+                    class="faq-panel-shell"
+                    data-faq-panel-shell
+                    aria-hidden="true"
+                  >
+                    <div class="faq-panel-flow">
+                      <div
+                        class="faq-panel"
+                        id="faq-panel-pay"
+                        data-faq-panel
+                        role="region"
+                        aria-labelledby="faq-trigger-pay"
+                      >
+                        The platform is designed for researchers, radiologists,
+                        hospitals, AI laboratories and medical imaging teams
+                        working with neuroimaging data.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="faq-item reveal" data-faq-item data-reveal-repeat>
+                  <button
+                    type="button"
+                    class="faq-toggle"
+                    id="faq-trigger-pay"
+                    data-faq-toggle
+                    aria-expanded="false"
+                    aria-controls="faq-panel-pay"
+                  >
+                    Can multiple users collaborate on the same cases?
+                    <span class="faq-toggle__icon" aria-hidden="true">
+                      <i class="fa-solid fa-person-circle-question"></i>
+                    </span>
+                  </button>
+                  <div
+                    class="faq-panel-shell"
+                    data-faq-panel-shell
+                    aria-hidden="true"
+                  >
+                    <div class="faq-panel-flow">
+                      <div
+                        class="faq-panel"
+                        id="faq-panel-pay"
+                        data-faq-panel
+                        role="region"
+                        aria-labelledby="faq-trigger-pay"
+                      >
+                        Yes. Clinical teams and researchers can securely access
+                        shared cases, reports and segmentation histories through
+                        multi-user collaboration tools.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="faq-item reveal" data-faq-item data-reveal-repeat>
+                  <button
+                    type="button"
+                    class="faq-toggle"
+                    id="faq-trigger-pay"
+                    data-faq-toggle
+                    aria-expanded="false"
+                    aria-controls="faq-panel-pay"
+                  >
+                    Is CerebraScan intended to replace radiologists?
+                    <span class="faq-toggle__icon" aria-hidden="true">
+                      <i class="fa-solid fa-person-circle-question"></i>
+                    </span>
+                  </button>
+                  <div
+                    class="faq-panel-shell"
+                    data-faq-panel-shell
+                    aria-hidden="true"
+                  >
+                    <div class="faq-panel-flow">
+                      <div
+                        class="faq-panel"
+                        id="faq-panel-pay"
+                        data-faq-panel
+                        role="region"
+                        aria-labelledby="faq-trigger-pay"
+                      >
+                        No. CerebraScan is designed as an AI-assisted decision
+                        support platform that helps medical professionals
+                        accelerate workflows and improve segmentation
+                        efficiency, not replace clinical expertise.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Commitment CTA band before footer — not a separate router target -->
+      <section
+        class="section-block section-commitment-banner"
+        aria-labelledby="commitment-banner-title"
+      >
+        <div
+          class="commitment-banner__bg"
+          aria-hidden="true"
+          style="background-image: url(&quot;/public/hero/image-2.jpg&quot;)"
+        ></div>
+        <div class="commitment-banner__scrim" aria-hidden="true"></div>
+        <div class="commitment-banner__inner max-w-9xl">
+          <div
+            class="commitment-banner__lines commitment-banner__wave reveal"
+            data-reveal-repeat
+            aria-label="Our promise to you"
+          >
+            <p
+              class="commitment-banner__line commitment-banner__line--title"
+              id="commitment-banner-title"
+            >
+              Advancing Precision Neuro Imaging, Together.
+            </p>
+            <p class="commitment-banner__line commitment-banner__line--lead">
+              From intelligent MRI segmentation to AI-assisted clinical
+              reporting, CerebraScan helps researchers and medical teams
+              streamline neuroimaging workflows with precision, clarity and
+              secure collaboration at every stage.
+            </p>
+            <p class="commitment-banner__line commitment-banner__line--tag">
+              Smarter analysis. Faster decisions. Greater clinical confidence.
+            </p>
+            <div class="commitment-banner__actions">
+              <div class="commitment-banner__ripple" aria-hidden="true">
+                <span class="commitment-banner__ripple-ring"></span>
+                <span
+                  class="commitment-banner__ripple-ring commitment-banner__ripple-ring--delay"
+                ></span>
+                <span class="commitment-banner__ripple-shine"></span>
+                <span class="commitment-banner__ripple-core">
+                  <i class="fas fa-star"></i>
+                </span>
+              </div>
+              <span class="cta-shine-wrap commitment-banner__cta">
+                <a href="#contact" data-route class="btn-paw btn-ripple">
+                  <img
+                    src="/public/brain-icon.svg"
+                    alt=""
+                    width="20"
+                    height="20"
+                    class="btn-paw__icon"
+                    aria-hidden="true"
+                  />
+                  Explore CerebraScan
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Contact / footer: route /contact — columns + legal line; year filled by js/main.js -->
+      <section
+        class="section-block section-contact"
+        data-section-id="contact"
+        id="contact"
+      >
+        <div class="max-w-9xl footer-grid">
+          <div class="reveal">
+            <div class="logo" style="margin-bottom: 1.2rem">
+              <img src="/public/logo.png" width="42" height="42" alt="" />
+              <span class="logo-text">
+                <span class="logo-word logo-word--paw">Cere</span
+                ><span class="logo-word logo-word--fect">bra</span>
+                <span class="logo-word logo-word--care">Scan</span>
+              </span>
+            </div>
+            <p>BP 73, Bureau de poste EL WIAM, Sidi Bel Abbés 22016, Algérie</p>
+          </div>
+          <div class="footer-col reveal">
+            <h4>Visit</h4>
+            <a href="#services" data-route>Services</a>
+            <a href="#plans" data-route>Plans</a>
+            <a href="#team" data-route>Team</a>
+          </div>
+          <div class="footer-col reveal">
+            <h4>Learn</h4>
+            <a href="#faq" data-route>FAQ</a>
+            <a href="#stories" data-route>Proven Impact</a>
+            <a href="#about" data-route>Our story</a>
+          </div>
+          <div class="footer-col reveal">
+            <h4>Say hi</h4>
+            <a href="mailto:info@cerebrascan.example">info@cerebrascan.dz</a>
+            <a href="tel:+15551234567">(213) 111111111</a>
+          </div>
+        </div>
+        <div class="max-w-9xl footer-bottom reveal">
+          <div class="footer-bottom__rule" aria-hidden="true"></div>
+          <p>
+            CerebraScan — Advancing AI-Driven MRI Analysis ©
+            <span id="footer-year">2026</span>. All rights reserved.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Native <dialog> modals — opened with .showModal() from doctorReel.js / reviewsReel.js -->
+    <dialog
+      id="doctor-detail-dialog"
+      class="doctor-modal"
+      aria-label="Team member profile"
+    >
+      <div class="doctor-modal__shell">
+        <button
+          type="button"
+          class="doctor-modal__close"
+          aria-label="Close profile"
+        >
+          &times;
+        </button>
+        <div class="doctor-modal__body" data-doctor-modal-body></div>
+      </div>
+    </dialog>
+
+    <dialog
+      id="review-detail-dialog"
+      class="review-modal"
+      aria-labelledby="review-modal-title"
+    >
+      <div class="doctor-modal__shell">
+        <button
+          type="button"
+          class="doctor-modal__close"
+          aria-label="Close story"
+        >
+          &times;
+        </button>
+        <div class="doctor-modal__body" data-review-modal-body></div>
+      </div>
+    </dialog>
+
+    <!-- ES module entry — browser loads js/main.js and its static imports (no bundler). -->
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+@font-face {
+  font-family: Fredoka;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/public/fonts/fredoka-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Fredoka;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/public/fonts/fredoka-500.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Fredoka;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/public/fonts/fredoka-600.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Fredoka;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/public/fonts/fredoka-700.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Nunito;
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/public/fonts/nunito-400-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/public/fonts/nunito-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/public/fonts/nunito-600.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/public/fonts/nunito-700.woff2") format("woff2");
+}
+
+:root {
+  --font-display: "Fredoka", system-ui, sans-serif;
+  --font-body: "Nunito", system-ui, sans-serif;
+
+  --color-mint: #3aa894;
+  --color-mint-dark: #13746a;
+  --color-peach: #ffb4a2;
+  --color-peach-deep: #ff8c7a;
+  --color-butter: #ffeaa7;
+  --color-lilac: #dcd6f7;
+  --color-ink: #2d3436;
+  --color-muted: #636e72;
+  --color-cream: #fff9f5;
+  --color-white: #ffffff;
+
+  --shadow-soft: 0 8px 32px rgba(45, 52, 54, 0.08);
+  --shadow-card: 0 12px 40px rgba(94, 201, 181, 0.15);
+  --radius-paw: 1.8rem;
+  --radius-chip: 999px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  /*
+   * max-w-9xl: wide content rail (≈ Tailwind max-w-screen-2xl).
+   * Note: html { font-size: 62.5% } makes 1rem ≈ 10px — do NOT use 96rem here
+   * or the layout stays ~960px wide. Use px for this cap.
+   */
+  --max-w-9xl: 1536px;
+  /* Navbar height — hero uses negative margin to sit under transparent bar */
+  --site-header-height: 7.2rem;
+}
+
+/* Subtle glass blur (≈ Tailwind blur-xs / light glass) */
+.backdrop-xs {
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}

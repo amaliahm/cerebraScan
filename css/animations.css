@@ -1,0 +1,303 @@
+/*
+ * Motion system: .reveal / .is-visible, section-specific stagger, services nuggets, commitment wave.
+ * js/scrollReveal.js toggles .is-visible; many rules duplicate under @media (prefers-reduced-motion: reduce).
+ */
+.reveal {
+  opacity: 0;
+  transform: translateY(1.75rem) scale(0.98);
+  transition:
+    opacity 0.65s var(--ease-out),
+    transform 0.65s var(--ease-out);
+  transition-delay: calc(var(--reveal-i, 0) * 65ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* About: “stairway” stagger — slight diagonal slide + longer step delay */
+.about-stair .reveal {
+  transform: translate(0.85rem, 1.6rem) scale(0.985);
+  transition:
+    opacity 0.72s var(--ease-out),
+    transform 0.72s var(--ease-out);
+  transition-delay: calc(var(--reveal-i, 0) * 105ms);
+}
+
+.about-stair .reveal.is-visible {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+/* About hero photo: softer float-in + glow already on .about-visual */
+.about-visual.reveal {
+  transform: translateY(2.6rem) scale(0.92);
+  transition:
+    opacity 0.95s var(--ease-out),
+    transform 0.95s var(--ease-out);
+  transition-delay: 0ms;
+}
+
+.about-visual.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* About section lead — slower, smooth fade-rise after chips */
+.section-about__lead.reveal {
+  transform: translateY(1.1rem) scale(0.995);
+  transition:
+    opacity 1.1s var(--ease-out),
+    transform 1.1s var(--ease-out);
+  transition-delay: 0ms;
+}
+
+.section-about__lead.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/*
+ * Services cards: first scroll uses global .reveal + 85ms JS stagger (Snuggles-style).
+ * After data-services-card-intro="done", tab changes are slide-only — no re-zoom.
+ */
+.services-tabs[data-services-card-intro="done"] .service-mini-grid .service-pill.reveal {
+  transition: none;
+  transition-delay: 0ms;
+}
+
+/*
+ * Service glass nuggets: enter (pop) then shake-only pass.
+ * Split so global .reveal.is-visible cannot flatten transform during the wiggle;
+ * JS adds .service-pill--shake-phase on animationend (serviceNuggetEnter).
+ */
+@keyframes serviceNuggetEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(0.85rem) scale(0.88) rotate(var(--nr, 0deg));
+  }
+
+  32% {
+    opacity: 1;
+    transform: translateY(0) scale(1.05) rotate(var(--nr, 0deg));
+  }
+
+  42%,
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(var(--nr, 0deg));
+  }
+}
+
+@keyframes serviceNuggetShakeOnly {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(var(--nr, 0deg));
+  }
+
+  14% {
+    transform: translateY(0) scale(1) rotate(calc(var(--nr, 0deg) + 4.5deg))
+      translateX(7px);
+  }
+
+  28% {
+    transform: translateY(0) scale(1) rotate(calc(var(--nr, 0deg) - 3.8deg))
+      translateX(-6px);
+  }
+
+  42% {
+    transform: translateY(0) scale(1) rotate(calc(var(--nr, 0deg) + 2.8deg))
+      translateX(5px);
+  }
+
+  56% {
+    transform: translateY(0) scale(1) rotate(calc(var(--nr, 0deg) - 2deg))
+      translateX(-4px);
+  }
+
+  70% {
+    transform: translateY(0) scale(1) rotate(calc(var(--nr, 0deg) + 1.2deg))
+      translateX(2px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(var(--nr, 0deg));
+  }
+}
+
+.services-tabs .service-mini-grid .service-pill--nugget.reveal {
+  opacity: 0;
+  transform: translateY(0.85rem) scale(0.88) rotate(var(--nr, 0deg));
+  transition: none;
+  animation: none;
+}
+
+.services-tabs .service-mini-grid .service-pill--nugget.reveal.is-visible {
+  opacity: 1;
+  /* Overrides .reveal.is-visible (no tilt); keyframes still drive motion while animations run. */
+  transform: translateY(0) scale(1) rotate(var(--nr, 0deg));
+  animation: serviceNuggetEnter 0.62s var(--ease-out) both;
+  animation-delay: calc(
+    var(--services-nugget-base-delay, 0ms) + var(--reveal-i, 0) * 85ms
+  );
+}
+
+.services-tabs
+  .service-mini-grid
+  .service-pill--nugget.reveal.is-visible.service-pill--shake-phase {
+  animation: serviceNuggetShakeOnly 0.52s var(--ease-out) both;
+  animation-delay: 0ms;
+}
+
+/*
+ * Commitment banner: one scroll reveal on .commitment-banner__wave; lines wave in
+ * with alternating offsets + staggered transition-delay (no data-reveal-stagger).
+ */
+.section-commitment-banner .commitment-banner__wave .commitment-banner__line,
+.section-commitment-banner .commitment-banner__wave .commitment-banner__actions {
+  opacity: 0;
+  transform: translateY(2.2rem) translateX(var(--commitment-wave-x, 0))
+    rotate(var(--commitment-wave-r, 0deg));
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.95s cubic-bezier(0.33, 1.1, 0.45, 1);
+}
+
+.section-commitment-banner .commitment-banner__wave.is-visible .commitment-banner__line,
+.section-commitment-banner .commitment-banner__wave.is-visible .commitment-banner__actions {
+  opacity: 1;
+  transform: translateY(0) translateX(0) rotate(0deg);
+}
+
+.section-commitment-banner .commitment-banner__wave.is-visible .commitment-banner__line:nth-child(1) {
+  transition-delay: 0ms;
+}
+
+.section-commitment-banner .commitment-banner__wave.is-visible .commitment-banner__line:nth-child(2) {
+  transition-delay: 145ms;
+}
+
+.section-commitment-banner .commitment-banner__wave.is-visible .commitment-banner__line:nth-child(3) {
+  transition-delay: 290ms;
+}
+
+.section-commitment-banner .commitment-banner__line:nth-child(1) {
+  --commitment-wave-x: -1.1rem;
+  --commitment-wave-r: -1.2deg;
+}
+
+.section-commitment-banner .commitment-banner__line:nth-child(2) {
+  --commitment-wave-x: 1.35rem;
+  --commitment-wave-r: 1deg;
+}
+
+.section-commitment-banner .commitment-banner__line:nth-child(3) {
+  --commitment-wave-x: -0.85rem;
+  --commitment-wave-r: -0.8deg;
+}
+
+.section-commitment-banner .commitment-banner__wave.is-visible .commitment-banner__actions {
+  transition-delay: 420ms;
+}
+
+.section-commitment-banner .commitment-banner__actions {
+  --commitment-wave-x: 0.55rem;
+  --commitment-wave-r: 0.45deg;
+}
+
+/* CTA: same wiggle as service glass nuggets, after the actions block finishes sliding in */
+.section-commitment-banner .commitment-banner__wave.is-visible .commitment-banner__cta {
+  --nr: -0.45deg;
+  animation: serviceNuggetShakeOnly 0.52s var(--ease-out) both;
+  animation-delay: calc(420ms + 950ms + 40ms);
+}
+
+/*
+ * FAQ accordion rows: slide from the left with a tiny tilt; re-run when
+ * [data-reveal-repeat] leaves and re-enters the viewport.
+ */
+.section-faq .faq-item.reveal[data-reveal-repeat] {
+  opacity: 0;
+  transform: translateX(-1.85rem) translateY(0.85rem) rotate(-1.6deg) scale(0.97);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.34, 1.12, 0.45, 1);
+}
+
+.section-faq .faq-item.reveal[data-reveal-repeat].is-visible {
+  opacity: 1;
+  transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+}
+
+.section-faq .faq-item.reveal[data-reveal-repeat]:nth-child(1) {
+  transition-delay: 0ms;
+}
+.section-faq .faq-item.reveal[data-reveal-repeat]:nth-child(2) {
+  transition-delay: 55ms;
+}
+.section-faq .faq-item.reveal[data-reveal-repeat]:nth-child(3) {
+  transition-delay: 110ms;
+}
+.section-faq .faq-item.reveal[data-reveal-repeat]:nth-child(4) {
+  transition-delay: 165ms;
+}
+.section-faq .faq-item.reveal[data-reveal-repeat]:nth-child(5) {
+  transition-delay: 220ms;
+}
+.section-faq .faq-item.reveal[data-reveal-repeat]:nth-child(6) {
+  transition-delay: 275ms;
+}
+.section-faq .faq-item.reveal[data-reveal-repeat]:nth-child(7) {
+  transition-delay: 330ms;
+}
+.section-faq .faq-item.reveal[data-reveal-repeat]:nth-child(8) {
+  transition-delay: 385ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-commitment-banner .commitment-banner__wave .commitment-banner__line,
+  .section-commitment-banner .commitment-banner__wave .commitment-banner__actions {
+    transition: none !important;
+    transition-delay: 0ms !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  .section-commitment-banner .commitment-banner__wave.is-visible .commitment-banner__cta {
+    animation: none !important;
+    animation-delay: 0ms !important;
+  }
+
+  .section-faq .faq-item.reveal[data-reveal-repeat] {
+    transition: none;
+    transition-delay: 0ms !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .about-stair .reveal,
+  .about-visual.reveal,
+  .section-about__lead.reveal {
+    transition: none;
+    transform: none;
+  }
+
+  .services-tabs .service-mini-grid .service-pill--nugget.reveal {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .services-tabs .service-mini-grid .service-pill--nugget.reveal.is-visible {
+    animation: heroNuggetReduce 0.42s ease forwards;
+    animation-delay: calc(var(--reveal-i, 0) * 55ms);
+  }
+}
