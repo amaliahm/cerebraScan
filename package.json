@@ -9,10 +9,14 @@
     "lint:fix": "eslint . --fix",
     "copy-static": "node scripts/copy-static.mjs",
     "fetch-assets": "node scripts/download-hero-assets.mjs",
+    "build": "echo 'No build required for static site'",
+    "start": "serve . -s",
+    "dev": "serve . -s"
   },
   "devDependencies": {
     "@eslint/js": "^9.16.0",
     "eslint": "^9.16.0",
-    "globals": "^15.13.0"
+    "globals": "^15.13.0",
+    "serve": "latest"
   }
 }
