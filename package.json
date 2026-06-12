@@ -1,7 +1,7 @@
 {
   "name": "cerebrascan",
-  "version": "1.0.0",
   "private": true,
+  "version": "1.0.0",
   "type": "module",
   "description": "Weakly Supervised Brain Tumor Segmentation using Image level Annotation (guided by text/bounding box)",
   "scripts": {
