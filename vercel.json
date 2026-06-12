@@ -1,7 +1,4 @@
 {
-  "installCommand": "npm install",
-  "buildCommand": "echo 'No build required for static site'",
-  "devCommand": "npx serve . -s -l 3000",
   "cleanUrls": true,
   "headers": [
     {
