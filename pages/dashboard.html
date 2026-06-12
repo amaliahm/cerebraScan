@@ -67,10 +67,10 @@
       !(function () {
         try {
           var t = localStorage.getItem("dash26-theme"),
-            e = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            e = window.matchMedia("(prefers-color-scheme: light)").matches;
           document.documentElement.setAttribute(
             "data-theme",
-            t || (e ? "dark" : "light"),
+            t || (e ? "light" : "light"),
           );
         } catch (t) {
           document.documentElement.setAttribute("data-theme", "light");

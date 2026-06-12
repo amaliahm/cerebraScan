@@ -5713,6 +5713,7 @@ body.has-palette-open .palette-backdrop {
   }
   .d-sidebar {
     padding: 20px 10px;
+    height: 100%;
   }
   .brand-tag,
   .brand-text,
