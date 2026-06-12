@@ -63,9 +63,7 @@
                 `${a > 0 ? '<svg class="sep" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>' : ""}<span${a === t.length - 1 ? ' class="current"' : ""}>${e}</span>`,
             )
             .join("");
-        })(
-          e,
-        )}\n\n     </div>\n    </header>`;
+        })(e)}\n\n     </div>\n    </header>`;
       }
       function s() {
         const e = document.body,
@@ -104,7 +102,7 @@
                 })(t, e),
               )
               .join("");
-            return `\n    <aside class="d-sidebar">\n      <div class="brand">\n        <div class="brand-logo"><svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">\n <path fill="#ffffff" d="M24.8 12.2c-1.2-2.6-3.6-4.2-6.6-4.2c-4.8 0-8.2 3.8-8.2 10s3.4 10 8.2 10c3.1 0 5.5-1.6 6.7-4.3c.4-.9.2-1.9-.6-2.5c-.9-.7-2.1-.5-2.7.5c-.7 1.2-1.8 1.9-3.4 1.9c-2.9 0-4.6-2.5-4.6-5.6s1.7-5.6 4.6-5.6c1.6 0 2.7.7 3.3 1.8c.6 1 1.9 1.3 2.8.7c.8-.6 1-1.6.5-2.5z"/>\n </svg></div>\n        <div class="brand-text">\n          <div class="brand-name">CerebraScan</div>\n          <div class="brand-tag">v4.1.2 · preview</div>\n        </div>\n      </div>\n      ${t}\n      <div class="sidebar-footer">\n        <div class="workspace">\n          <div class="workspace-avatar">DF</div>\n          <div class="workspace-text">\n            <div class="workspace-name">Dr Fatima</div>\n            <div class="workspace-role">admin</div>\n          </div>\n          <svg class="workspace-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">\n            <path d="m7 9 5-5 5 5"/><path d="m7 15 5 5 5-5"/>\n          </svg>\n        </div>\n      </div>\n    </aside>`;
+            return `\n    <aside class="d-sidebar">\n      <div class="brand">\n        <div class="brand-logo"><svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">\n <path fill="#ffffff" d="M24.8 12.2c-1.2-2.6-3.6-4.2-6.6-4.2c-4.8 0-8.2 3.8-8.2 10s3.4 10 8.2 10c3.1 0 5.5-1.6 6.7-4.3c.4-.9.2-1.9-.6-2.5c-.9-.7-2.1-.5-2.7.5c-.7 1.2-1.8 1.9-3.4 1.9c-2.9 0-4.6-2.5-4.6-5.6s1.7-5.6 4.6-5.6c1.6 0 2.7.7 3.3 1.8c.6 1 1.9 1.3 2.8.7c.8-.6 1-1.6.5-2.5z"/>\n </svg></div>\n        <div class="brand-text">\n          <div class="brand-name">CerebraScan</div>\n          <div class="brand-tag">v4.1.2 · preview</div>\n        </div>\n      </div>\n      ${t}\n      <div class="sidebar-footer">\n        <div class="workspace">\n          <div class="workspace-avatar">DF</div>\n          <div class="workspace-text">\n            <div class="workspace-name">Dr Amina</div>\n            <div class="workspace-role">admin</div>\n          </div>\n          <svg class="workspace-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">\n            <path d="m7 9 5-5 5 5"/><path d="m7 15 5 5 5-5"/>\n          </svg>\n        </div>\n      </div>\n    </aside>`;
           })(t)),
           r && (r.outerHTML = o(a)),
           i && (i.outerHTML = "\n "));
