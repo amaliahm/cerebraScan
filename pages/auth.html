@@ -516,7 +516,7 @@
           .setAttribute("aria-selected", mode === "signup");
         document.getElementById("form-title").textContent = titles[mode].h;
         document.getElementById("form-subtitle").textContent = titles[mode].p;
-        history.replaceState(null, "", "/auth?mode=" + mode);
+        history.replaceState(null, "", "/pages/auth?mode=" + mode);
       }
 
       function togglePw(inputId, btn) {
